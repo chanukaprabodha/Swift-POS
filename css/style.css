@@ -1,0 +1,36 @@
+header .navbar-brand{
+  font-family: "Archivo Black", sans-serif;
+}
+
+main {
+  height: auto;
+  display: flex;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 80vw;
+  margin-left: 1rem;
+}
+
+.table thead th {
+  background-color: #343a40 !important;
+  color: #ffffff !important;
+}
+
+
+
+footer {
+  background-color: gray;
+  text-align: center;
+  height: 50px;
+  width: auto;
+}
+
+footer p {
+  color: white;
+  margin: 0;
+  padding: 16px;
+}
