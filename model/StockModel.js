@@ -1,4 +1,4 @@
-import { Stock } from "../db/DB";
+import { Stock } from "../db/DB.js";
 
 export function saveItem(item) {
     Stock.push(item);

@@ -31,11 +31,9 @@
     />
 
     <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.7/dist/sweetalert2.min.css"
     />
-
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -469,33 +467,49 @@
         <div class="content">
           <div class="fs-1 m-4 fw-bold">Inventory</div>
           <!-- Form -->
-          <form class="row g-3 w-50 mx-auto">
+          <form class="row g-3 w-50 mx-auto" id="stockForm">
             <div class="col-md-6">
-              <label for="inputItemName" class="form-label">Item Name</label>
-              <input type="text" class="form-control" id="inputItemName" />
+              <label for="itemName" class="form-label">Item Name</label>
+              <input type="text" class="form-control" id="itemName" />
+              <h6
+                class="invalidName text-danger fw-400 position-absolute"
+              ></h6>
             </div>
             <div class="col-md-6">
-              <label for="inputItemCode" class="form-label">Item Code</label>
-              <input type="password" class="form-control" id="inputItemCode" />
+              <label for="itemCode" class="form-label">Item Code</label>
+              <input type="text" class="form-control" id="itemCode" />
+              <h6
+                class="invalidCode text-danger fw-400 position-absolute"
+              ></h6>
             </div>
             <div class="col-12">
-              <label for="inputQty" class="form-label">Quantity</label>
-              <input type="number" class="form-control" id="inputQty" />
+              <label for="itemQty" class="form-label">Quantity</label>
+              <input type="number" class="form-control" id="itemQty" />
+              <h6
+                class="invalidQty text-danger fw-400 position-absolute"
+              ></h6>
             </div>
             <div class="col-12">
-              <label for="inputPrice" class="form-label">Price</label>
+              <label for="itemPrice" class="form-label">Price</label>
               <input
                 type="currency"
                 class="form-control"
-                id="inputPrice"
+                id="itemPrice"
                 placeholder="$"
               />
+              <h6
+                class="invalidPrice text-danger fw-400 position-absolute"
+              ></h6>
             </div>
+
+            <!---------- Buttons ---------->
+
             <div class="d-flex justify-content-evenly">
               <button
                 type="submit"
                 class="btn btn-success"
                 style="width: 100px"
+                id="addBtn"
               >
                 Add
               </button>
@@ -504,15 +518,26 @@
                 type="submit"
                 class="btn btn-warning"
                 style="width: 100px"
+                id="updateBtn"
               >
                 Update
               </button>
 
-              <button type="submit" class="btn btn-danger" style="width: 100px">
+              <button
+                type="submit"
+                class="btn btn-danger"
+                style="width: 100px"
+                id="deleteBtn"
+              >
                 Delete
               </button>
 
-              <button type="button" class="btn btn-dark" style="width: 100px">
+              <button
+                type="button"
+                class="btn btn-dark"
+                style="width: 100px"
+                id="clearBtn"
+              >
                 Clear
               </button>
             </div>
@@ -523,11 +548,12 @@
           >
             <thead>
               <tr>
-                <th scope="col">Item Name</th>
                 <th scope="col">Item Code</th>
+                <th scope="col">Item Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
               </tr>
+              <tbody class="tableRow"></tbody>
             </thead>
           </table>
         </div>
@@ -626,6 +652,7 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="module" src="controller/CustomerController.js"></script>
+    <script type="module" src="/controller/CustomerController.js"></script>
+    <script type="module" src="/controller/StockController.js"></script>
   </body>
 </html>
