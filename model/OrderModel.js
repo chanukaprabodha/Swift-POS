@@ -1,9 +1,9 @@
-import { Orders } from "../db/DB";
+import { Orders } from "../db/DB.js";
 
 export function saveOrder(order) {
     Orders.push(order);
 }
 
-export function getOrders() {
+export function getAllOrders() {
     return Orders;
 }
